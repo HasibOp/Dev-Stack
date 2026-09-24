@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@layer components {
+  .brand-gradient {
+    @apply bg-linear-to-r from-orange-500 via-pink-500 to-violet-500;
+  }
+
+  .text-brand-gradient {
+    @apply bg-linear-to-r from-orange-500 via-pink-500 to-violet-500 bg-clip-text text-transparent;
+  }
+}
