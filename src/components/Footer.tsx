@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../assets/logo-text.png';
 
 const Footer = () => {
   const footerLinks = [
@@ -21,13 +22,12 @@ const Footer = () => {
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-12 text-center md:text-left'>
           <div className='flex flex-col items-center md:items-start col-span-1 md:col-span-1'>
-            <div className='flex items-center gap-2 mb-4'>
-              <div className='w-8 h-8 rounded-lg brand-gradient flex items-center justify-center text-white font-bold text-sm'>
-                DS
-              </div>
-              <span className='text-xl font-bold text-gray-900'>
-                Dev<span className='text-brand-gradient'>Stack</span>
-              </span>
+            <div className='flex items-center mb-4'>
+              <img
+                src={logo}
+                alt='DevStack Logo'
+                className='h-9 w-auto object-contain'
+              />
             </div>
 
             <p className='text-sm text-gray-500 mb-6 leading-relaxed max-w-xs md:max-w-full'>
