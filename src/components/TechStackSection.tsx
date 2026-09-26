@@ -5,12 +5,14 @@ import SelectedStack from './SelectedStack';
 const TechStackSection = () => {
   const [techs, setTechs] = useState<TechItem[]>([]);
   const [selectedTechs, setSelectedTechs] = useState<TechItem[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('/data.json')
       .then((res) => res.json())
       .then((data) => setTechs(data))
-      .catch((err) => console.error('Error fetching tech data:', err));
+      .catch((err) => console.error('Error fetching tech data:', err))
+      .finally(() => setLoading(false));
   }, []);
 
   const handleAddTech = (tech: TechItem) => {
@@ -42,14 +44,20 @@ const TechStackSection = () => {
 
         <div className='grid grid-cols-1 lg:grid-cols-4 gap-8 items-start'>
           <div className='lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
-            {techs.map((tech) => (
-              <TechCard
-                key={tech.id}
-                tech={tech}
-                onAdd={handleAddTech}
-                isSelected={selectedTechs.some((t) => t.id === tech.id)}
-              />
-            ))}
+            {loading ? (
+              <div className='col-span-full flex justify-center py-20 text-gray-500 font-medium'>
+                Loading technologies...
+              </div>
+            ) : (
+              techs.map((tech) => (
+                <TechCard
+                  key={tech.id}
+                  tech={tech}
+                  onAdd={handleAddTech}
+                  isSelected={selectedTechs.some((t) => t.id === tech.id)}
+                />
+              ))
+            )}
           </div>
 
           <div className='lg:col-span-1'>
