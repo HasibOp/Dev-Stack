@@ -63,6 +63,7 @@ React relies on the unique key prop to keep track of individual list items when 
 Conditional rendering means displaying different UI elements based on whether specific conditions are true or false. In this project, conditional rendering is used to display a loading indicator while data is being fetched, or to show an empty state message when the user hasn't added any items to their stack yet.
 
 7. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
+testing yolo
 
 Parent to Child: Data is passed down from parent to child through props (e.g., <TechCard technology={item} />).
 
